@@ -1,7 +1,8 @@
 import Fifa from "./Fifa";
 import {useState} from "react";
 import { Route,Routes } from "react-router-dom";
-import Routed from "./Routing";
+import Privacy from "./privacy";
+import Terms from "./terms";
 function App() {
   const[rank1,setran1]=useState(1);
   const[rank2,setran2]=useState(2);
@@ -18,7 +19,8 @@ function App() {
       <Routes>
       <Route path="/" element={<Fifa r1={rank1} r2={rank2} r3={rank3} r1n={r1name} r2n={r2name} r3n={r3name} p1={points1} p2={points2} p3={points3}/>}/>
 
-      <Route path="/Routing" element={<Routed/>}/>
+      <Route path="/privacy" element={<Privacy/>}/>
+      <Route path="/terms" element={<Terms/>}/>
         
       </Routes>
     </div>

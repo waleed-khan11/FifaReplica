@@ -27,16 +27,29 @@ function Fifa(props) {
     setcard2(filteredData)
 
   }
+  function handleDelete3(card3id) {
+
+    console.log("delete");
+
+    const filteredData = card3.filter((se) => se.id != card3id);
+    setcard3(filteredData)
+
+  }
 
   const [card1, setcard1] = useState([{ id: 1, Tital: "Leonel Messi", PA: "Lionel Andrés Messi, is an Argentine professional footballer who plays as a forward for Ligue 1 club Paris Saint-Germain and captains the Argentina national team. ", pic: <img src={require('./avatar.jpg')} alt="" style={{ height: "30vh", width: " 100%" }} /> },
   { id: 2, Tital: "Gareth bale", PA: "Gareth Frank Bale MBE is a Welsh professional footballer who plays as a winger for Major League Soccer club Los Angeles FC and the Wales national team       .  ", pic: <img src={require('./bale.jpg')} alt="" style={{ height: "30vh", width: " 100%" }} /> },
   { id: 3, Tital: "Kareem benzima", PA: "Karim Mostafa Benzema is a French professional footballer who plays as a striker for and captains La Liga club Real Madrid, and the France national team    .", pic: <img src={require('./benzima.jpeg')} alt="" style={{ height: "30vh", width: " 100%" }} /> }]);
   const [card2, setcard2] = useState([
-    { id: 1, Tital: "Pakistan team ready to win world cup 2026", PA: "The Pakistan national football team represents Pakistan association football in FIFA-authorized events and is controlled by the Pakistan Football Federation, the governing body for football in Pakistan.", pic: <img src={require('./pak.jpg')} alt="" style={{ height: "30vh", width: " 100%" }} /> },
-    { id: 2, Tital: "Ronaldo Died sadly", PA: "Cristiano Ronaldo dos Santos Aveiro GOIH ComM is a Portuguese professional footballer who plays as a forward and captains the Portugal national team. Widely regarded as one of the greatest players of all time, Ronaldo has won five Ballon d'Or awards and four European Golden Shoes, the most by a European player", pic: <img src={require('./Ronaldo.jpg')} alt="" style={{ height: "50vh", width: " 70%" }} /> },
-    { id: 3, Tital: "Robert lewondoski flied to pakistan", PA: "Robert Lewandowski is a Polish professional footballer who plays as a striker for La Liga club Barcelona and captains the Poland national team.", pic: <img src={require('./robert.jpg')} alt="" style={{ height: "30vh", width: " 100%" }} /> }]);
+    { id: 1, Tital: "Pakistan team ready to win world cup 2026", PA: "The Pakistan national football team represents Pakistan association football in FIFA-authorized events and is controlled by the Pakistan Football Federation, the governing body for football in Pakistan.", pic: <img src={require('./pak.jpg')} alt="" style={{ width: " 50%" }} /> },
+    { id: 2, Tital: "Ronaldo Died sadly", PA: "Cristiano Ronaldo dos Santos Aveiro GOIH ComM is a Portuguese professional footballer ", pic: <img src={require('./Ronaldo.jpg')} alt="" style={{  width: " 50%" }} /> },
+    { id: 3, Tital: "Robert lewondoski flied to pakistan", PA: "Robert Lewandowski is a Polish professional footballer who plays as a striker for La Liga club Barcelona and captains the Poland national team.", pic: <img src={require('./robert.jpg')} alt="" style={{ width: " 50%" }} /> }]);
 
-
+    const [card3, setcard3] = useState([
+      { id: 1, Tital: "Pakistan team ready to win world cup 2026", PA: "The Pakistan national football team represents Pakistan association football in FIFA-authorized events and is controlled by the Pakistan Football Federation, the governing body for football in Pakistan.", pic: <img src={require('./pak.jpg')} alt="" style={{ width: " 50%" }} /> },
+      { id: 2, Tital: "Ronaldo Died sadly", PA: "Cristiano Ronaldo dos Santos Aveiro GOIH ComM is a Portuguese professional footballer ", pic: <img src={require('./Ronaldo.jpg')} alt="" style={{  width: " 50%" }} /> },
+      { id: 3, Tital: "Robert lewondoski flied to pakistan", PA: "Robert Lewandowski is a Polish professional footballer who plays as a striker for La Liga club Barcelona and captains the Poland national team.", pic: <img src={require('./robert.jpg')} alt="" style={{ width: " 50%" }} /> }]);
+  
+  
   function handelbutton2(studentid) {
 
     console.log("delete");
@@ -166,7 +179,7 @@ function Fifa(props) {
                     </div>
                   </li>
                   <li>
-                  <a href="#" class="desktop-item" >Feedback</a>
+                  <a href="#" class="desktop-item" >LEGAL</a>
 
 
 <div class="mega-box">
@@ -176,12 +189,10 @@ function Fifa(props) {
     </div>
     
     <div class="row">
-      <header>Email Services</header>
+      <header>Sub Menu</header>
       <ul class="mega-links">
-        <li><Link to="/Routing">  Personal Email </Link></li>
-        <li><a href="#">Business Email</a></li>
-        <li><a href="#">Mobile Email</a></li>
-        <li><a href="#">Web Marketing</a></li>
+        <li><Link to="/privacy">  Privacy </Link></li>
+        <li><Link to="/terms">  Terms </Link></li>
       </ul>
     </div>
   
@@ -203,13 +214,51 @@ function Fifa(props) {
         </div>
         <div class="row" >
           <div class="col-lg-10" style={{ width: "300px" }} >
-            <div class="row" style={{ height: "50vh" }} id="lt">
+            <div class="row" id="lt">
               
               <h3>Football unites the world </h3>
               <p>
                 Football Unites the World is a global movement to inspire, unite and develop through football.
               </p>
               <h4>More from the topic</h4>
+              {
+
+card1.map((card, key) => (
+  <div>
+
+    <div class="card" key={card.id} style={{ width: "18rem" }}>
+
+      <div class="card-body">
+        <p>{card.pic}</p>
+        <h5 class="card-title">{card.Tital}</h5>
+
+        <p class="card-text">{card.PA}</p>
+        {/* <a href="#" class="btn btn-primary" onClick={() => handelbutton2(card.id)}>Delete</a> */}
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+))
+
+
+
+
+
+}
+
             </div>
 
             <div class="row" style={{ height: "50vh" }} id="lb">
@@ -282,21 +331,22 @@ function Fifa(props) {
                 <h3>More</h3>
                 <h5>---------------------------------------------------------------------------------------------------------------------------------------</h5>
               </div>
+              <div style={{ display: "flex" }}>
               {
                 card2.map((card, key) => (
                   <div>
-                    <div class="card w-75" key={card.id} style={{marginTop:"40px"}}>
+                    <div class="card w-75" key={card.id} >
                       <div class="card-body">
                         <h5 class="card-title">{card.Tital}</h5>
                         <p>{card.pic}</p>
 
                         <p class="card-text">{card.PA}</p>
-                        {/* <a href="#" class="btn btn-primary" onClick={()=>handleDelete(card.id)}>Button</a> */}
+                        <button  class="btn btn-danger" onClick={()=>handleDelete(card.id)}>Delete</button>
                       </div>
                     </div>
 
 
-
+                   
 
 
 
@@ -320,8 +370,46 @@ function Fifa(props) {
 
 
             </div>
+            <div style={{ display: "flex" }}>
+              {
+                card3.map((card, key) => (
+                  <div>
+                    <div class="card w-75" key={card.id} >
+                      <div class="card-body">
+                        <h5 class="card-title">{card.Tital}</h5>
+                        <p>{card.pic}</p>
 
-            <div class="row" style={{ height: "50vh" }}>
+                        <p class="card-text">{card.PA}</p>
+                        <button  class="btn btn-danger" onClick={()=>handleDelete3(card.id)}>Delete</button>
+                      </div>
+                    </div>
+
+
+                   
+
+
+
+
+
+
+
+
+
+                  </div>
+
+
+
+                ))
+
+
+
+
+
+              }
+
+
+            </div>
+            <div class="row" >
                 <div class="col">
                 <h3>Men</h3>
               <table class="table">
@@ -452,7 +540,7 @@ function Fifa(props) {
                 <div class="row">
                   <div class="col-md-8 col-sm-6 col-xs-12">
                     <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by
-                      <a href="#">huzaifa sajjad</a>.
+                      <a href="#">Waleed khan</a>.
                     </p>
                   </div>
 
@@ -475,6 +563,7 @@ function Fifa(props) {
         </div>
       </div>
 
+    </div>
     </div>);
 }
 
